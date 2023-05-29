@@ -45,6 +45,19 @@ const HomeScreen = () => {
 
         <UserIcon size={35} color="#00ccbb" />
       </View>
+
+      {/* Search */}
+      <View className="flex-row items-center space-x-2 pb-2 px-2 mx-4">
+        <View className="flex-row items-center space-x-2 flex-1 bg-gray-200 p-3 ">
+          <MagnifyingGlassIcon size={20} color="gray" />
+          <TextInput
+            placeholder="Restaurants and cuisines"
+            keyboardType="default"
+          />
+        </View>
+        <AdjustmentsVerticalIcon color="#00ccbb" />
+      </View>
+
     </SafeAreaView>
   );
 };
