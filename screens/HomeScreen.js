@@ -27,7 +27,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaView className="bg-white pt-5 mt-5">
       {/* Header */}
-      <View className="flex flex-row pb-3 items-center mx-4 space-x-2 px-2">
+      <View className="flex flex-row pb-3 items-center mx-4 space-x-2">
         <Image
           source={{
             uri: "https://links.papareact.com/wru",
@@ -47,7 +47,7 @@ const HomeScreen = () => {
       </View>
 
       {/* Search */}
-      <View className="flex-row items-center space-x-2 pb-2 px-2 mx-4">
+      <View className="flex-row items-center space-x-2 pb-2 mx-4">
         <View className="flex-row items-center space-x-2 flex-1 bg-gray-200 p-3 ">
           <MagnifyingGlassIcon size={20} color="gray" />
           <TextInput
@@ -58,6 +58,13 @@ const HomeScreen = () => {
         <AdjustmentsVerticalIcon color="#00ccbb" />
       </View>
 
+      {/* Body */}
+      <ScrollView>
+        {/* Categories */}
+        <Categories />
+
+        {/* Featured Rows */}
+      </ScrollView>
     </SafeAreaView>
   );
 };
