@@ -2,18 +2,21 @@ import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'category',
-  title: 'Category',
+  title: 'Menu Category',
   type: 'document',
   fields: [
-    defineField({
-      name: 'title',
-      title: 'Title',
+    {
+      name: 'name',
       type: 'string',
-    }),
-    defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'text',
-    }),
+      title: 'Category name',
+      validation: (Rule) => Rule.required(),
+    },
+
+    {
+      name: 'image',
+      type: 'image',
+      title: 'Image of Category',
+      validation: (Rule) => Rule.required(),
+    },
   ],
 })
