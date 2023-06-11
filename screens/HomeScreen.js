@@ -17,7 +17,7 @@ import {
 import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
 import sanityClient from "../sanity";
-import "react-native-url-polyfill";
+import "react-native-url-polyfill/auto";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -26,19 +26,23 @@ const HomeScreen = () => {
   useEffect(() => {
     sanityClient
       .fetch(
-        `
-        *[_type == "featured"]{
+        `*[_type == "featured"]{
+        ...,
+        restaurants[]->{
           ...,
-          restaurants[]->{
-            ...,
-            dishes[]->
-          }
+          dishes[]->
         }
+      }
       `
       )
       .then((data) => {
+        if (!data) {
+          throw new Error("Error when obtaining Sanity's data");
+        }
         setFeaturedCategories(data);
-        console.log(featuredCategories);
+      })
+      .catch((error) => {
+        console.error("There was an error obtaining the data: ", error);
       });
   }, []);
 
