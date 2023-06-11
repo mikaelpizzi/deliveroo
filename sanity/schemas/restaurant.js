@@ -33,7 +33,7 @@ export default defineType({
       title: 'Longitude of the Restaurant',
     },
     {
-      name: 'addres',
+      name: 'address',
       type: 'string',
       title: 'Restaurant address',
       validation: (Rule) => Rule.required(),
